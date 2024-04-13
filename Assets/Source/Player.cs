@@ -15,7 +15,7 @@ public class Player : Entity
     {
         if (bIsMoving)
         {
-            MoveTowards();
+            bIsMoving = !MoveTowards(DesiredPosition);
         }
     }
 
@@ -29,18 +29,8 @@ public class Player : Entity
         }
     }
 
-    void MoveTowards()
+    protected override void Die()
     {
-        if (Vector3.Distance(transform.position, DesiredPosition) < MovementSpeed * Time.fixedDeltaTime)
-        {
-            transform.position = DesiredPosition;
-            bIsMoving = false;
-            return;
-        }
 
-        Vector3 Direction = (DesiredPosition - transform.position).normalized;
-        transform.position = transform.position + Direction * MovementSpeed * Time.fixedDeltaTime;
     }
-
-
 }
