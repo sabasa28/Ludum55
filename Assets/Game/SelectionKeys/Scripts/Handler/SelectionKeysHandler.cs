@@ -8,6 +8,7 @@ public class SelectionKeysHandler : MonoBehaviour
 {
     [Header("General Data")]
     [SerializeField] private Transform holder = null;
+    [SerializeField] private Transform holderPrefabs = null;
 
     [Header("Buttons Data")]
     [SerializeField] private GameObject buttonPrefab = null;
@@ -31,12 +32,13 @@ public class SelectionKeysHandler : MonoBehaviour
         selectionButtons = new List<SelectionButtonView>();
     }
 
-    public void Configure(SelectionKeysConfigure selectionKeysConfigure, Action onComplete = null, Action onFailure = null)
+    public void Configure(Func<SelectionKeysConfigure> selectionKeysConfigure, Action onComplete = null, Action onFailure = null)
     {
         this.onComplete = onComplete;
         this.onFailure = onFailure;
 
-        challengeAmount = selectionKeysConfigure.SequenseOfKeys.Count;
+        SelectionKeysConfigure callengeConfigure = selectionKeysConfigure.Invoke();
+        challengeAmount = callengeConfigure.SequenseOfKeys.Count;
 
         InstatiateNewButtons();
 
@@ -48,7 +50,8 @@ public class SelectionKeysHandler : MonoBehaviour
             }
             else
             {
-                selectionButtons[i].Configure(selectionKeysConfigure.SequenseOfKeys[i]);
+                selectionButtons[i].Configure(callengeConfigure.SequenseOfKeys[i]);
+                selectionButtons[i].gameObject.SetActive(true);
             }
         }
     }
@@ -136,7 +139,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
             for (int i = 0; i < newAmount; i++)
             {
-                selectionButtons.Add(Instantiate(buttonPrefab, holder.transform).GetComponent<SelectionButtonView>());
+                selectionButtons.Add(Instantiate(buttonPrefab, holderPrefabs.transform).GetComponent<SelectionButtonView>());
             }
         }
     }

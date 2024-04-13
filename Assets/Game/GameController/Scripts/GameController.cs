@@ -3,18 +3,19 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private SelectionKeysHandler selectionKeysHandler = null;
-    [Space]
-    [Header("TEST")]
-    [SerializeField] private SelectionKeysConfigure configureTest = null;
+    [SerializeField] private HabilitySelectionHandler habilitySelectionHandler = null;
 
     void Start()
     {
         selectionKeysHandler.Initialize();
-        selectionKeysHandler.Configure(configureTest, () => Debug.LogWarning("COMPLETE"), () => Debug.LogWarning("FAILURE"));
+        
+        habilitySelectionHandler.Initialize(selectionKeysHandler.Configure);
     }
 
     void Update()
     {
+        habilitySelectionHandler.UpdateButtonsDetection();
+
         selectionKeysHandler.UpdateSelection();
     }
 }
