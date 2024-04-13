@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rat : MonoBehaviour
+public class Rat : Entity
 {
     [SerializeField]
+    float TimeToSpawn;
 
     enum State
     { 
@@ -24,9 +25,20 @@ public class Rat : MonoBehaviour
         
     }
 
+    float InverseLerp(float a, float b, float v)
+    {
+        return (v - a) / (b - a);
+    }
+
     IEnumerator SpawnCoroutine()
     {
-
-        return null;
+        float InitialTime = Time.time;
+        float SpawnTime = Time.time + TimeToSpawn;
+        while (Time.time < SpawnTime)
+        {
+            transform.localScale *= InverseLerp(InitialTime, SpawnTime, Time.time);
+            yield return null;
+        }
+        transform.localScale = Vector3.one;
     }
 }

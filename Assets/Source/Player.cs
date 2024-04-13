@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    [SerializeField]
-    float MovementSpeed;
-
     Vector3 DesiredPosition;
     bool bIsMoving;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         CatchInput();
@@ -30,8 +21,6 @@ public class Player : MonoBehaviour
 
     void CatchInput()
     {
-        Debug.Log("Desiredpos = " + DesiredPosition);
-        //Debug.Log("mousepos = " + Input.mousePosition);
         if (Input.GetButtonDown("Move"))
         {
             DesiredPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -52,4 +41,6 @@ public class Player : MonoBehaviour
         Vector3 Direction = (DesiredPosition - transform.position).normalized;
         transform.position = transform.position + Direction * MovementSpeed * Time.fixedDeltaTime;
     }
+
+
 }
