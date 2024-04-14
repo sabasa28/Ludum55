@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e73be3208468bc44bad4b7d43f30311, type: 3}
-  m_Name: HabilitySelection_Bomber 1
+  m_Name: HabilitySelection_Chunky
   m_EditorClassIdentifier: 
-  amountOfKeys: 4
-  habilityImage: {fileID: 21300000, guid: 8d42588b79263134288e579ff217ac9d, type: 3}
-  activationKey: 120
-  catPrefab: {fileID: 3070367371919139068, guid: aec0ec41f21624d4cbeeb3f978630f23, type: 3}
+  amountOfKeys: 6
+  habilityImage: {fileID: 938152388, guid: 04e0143e8f7334040970dd3317a9ddff, type: 3}
+  activationKey: 99
+  catPrefab: {fileID: 4228786490762345365, guid: 2663982db3f24bf4faeed5133e37b7aa, type: 3}

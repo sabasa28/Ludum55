@@ -28,14 +28,14 @@ public class GameController : MonoBehaviour
     void Start()
     {
         TimeAtGameStart = Time.time;
-        habilitySelectionHandler.Initialize();
+        habilitySelectionHandler.Initialize(selectionKeysHandler.ToggleSelection);
         catSpawnerHandler.Initialize(player.transform);
         selectionKeysHandler.Initialize(player, habilitySelectionHandler.GetCurrentSelectionKey, habilitySelectionHandler.GetCurrentCatPrefab, catSpawnerHandler.GenerateCat);
     }
 
     void Update()
     {
-        habilitySelectionHandler.UpdateButtonsDetection();
+        habilitySelectionHandler.UpdateButtonsDetection(selectionKeysHandler.IsActive);
         selectionKeysHandler.UpdateSelection();
         catSpawnerHandler.UpdateInput();
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class HabilitySelectionHandler : MonoBehaviour
 {
@@ -14,24 +15,36 @@ public class HabilitySelectionHandler : MonoBehaviour
 
     private List<HabilityButtonView> habilityButtons = null;
     private HabilityButtonView currentHability = null;
+    private HabilityButtonView oldCurrentHability = null;
 
-    public void Initialize()
+    private Action onToggleSelection = null;
+
+    public void Initialize(Action onToggleSelection)
     {
+        this.onToggleSelection = onToggleSelection;
+
         habilityButtons = new List<HabilityButtonView>();
 
         InstantiatePrefabs();
     }
 
-    public void UpdateButtonsDetection()
+    public void UpdateButtonsDetection(bool isChallengeActive)
     {
+        if(isChallengeActive)
+        {
+            return;
+        }
+
         for (int i = 0; i < habilityButtons.Count; i++)
         {
             if (Input.GetKeyDown(habilityButtons[i].ActivationKey))
             {
-                currentHability.SelectView(false);
+                oldCurrentHability = currentHability;
 
-                habilityButtons[i].SelectView(true);
+                habilityButtons[i].SelectView();
                 currentHability = habilityButtons[i];
+
+                onToggleSelection.Invoke();
                 return;
             }
         }
@@ -44,6 +57,9 @@ public class HabilitySelectionHandler : MonoBehaviour
 
     public GameObject GetCurrentCatPrefab()
     {
+        oldCurrentHability?.ToggleBackground(false);
+        currentHability.ToggleBackground(true);
+
         return currentHability.CatPrefab;
     }
 
@@ -58,6 +74,6 @@ public class HabilitySelectionHandler : MonoBehaviour
         }
 
         currentHability = habilityButtons.First();
-        currentHability.SelectView(true);
+        oldCurrentHability = currentHability;
     }
 }
