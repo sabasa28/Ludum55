@@ -1,7 +1,6 @@
 using UnityEngine;
 
 using System.Collections.Generic;
-using System;
 using System.Linq;
 
 public class HabilitySelectionHandler : MonoBehaviour
@@ -16,11 +15,8 @@ public class HabilitySelectionHandler : MonoBehaviour
     private List<HabilityButtonView> habilityButtons = null;
     private HabilityButtonView currentHability = null;
 
-    private Action<Func<SelectionKeysConfigure>, Action, Action> onConfigureSelection = null;
-
-    public void Initialize(Action<Func<SelectionKeysConfigure>, Action, Action> onConfigureSelection)
+    public void Initialize()
     {
-        this.onConfigureSelection = onConfigureSelection;
         habilityButtons = new List<HabilityButtonView>();
 
         InstantiatePrefabs();
@@ -36,16 +32,19 @@ public class HabilitySelectionHandler : MonoBehaviour
 
                 habilityButtons[i].SelectView(true);
                 currentHability = habilityButtons[i];
-
-                onConfigureSelection.Invoke(GetCurrentSelectionKey, () => Debug.LogWarning("COMPLETE"), () => Debug.LogWarning("FAILURE"));
                 return;
             }
         }
     }
 
-    private SelectionKeysConfigure GetCurrentSelectionKey()
+    public SelectionKeysConfigure GetCurrentSelectionKey()
     {
         return currentHability.GetRandomSelectionKey();
+    }
+
+    public GameObject GetCurrentCatPrefab()
+    {
+        return currentHability.CatPrefab;
     }
 
     private void InstantiatePrefabs()
@@ -60,6 +59,5 @@ public class HabilitySelectionHandler : MonoBehaviour
 
         currentHability = habilityButtons.First();
         currentHability.SelectView(true);
-        onConfigureSelection.Invoke(GetCurrentSelectionKey, () => Debug.LogWarning("COMPLETE"), () => Debug.LogWarning("FAILURE"));
     }
 }

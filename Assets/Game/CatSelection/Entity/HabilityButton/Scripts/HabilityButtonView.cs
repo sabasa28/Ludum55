@@ -10,14 +10,17 @@ public class HabilityButtonView : MonoBehaviour
 
     private List<SelectionKeysConfigure> selectionKeysConfigure = null;
     private KeyCode activationKey = KeyCode.None;
+    private GameObject catPrefab = null;
 
     public KeyCode ActivationKey { get => activationKey; }
+    public GameObject CatPrefab { get => catPrefab; }
 
     public void Configure(HabilitySelectionConfigure habilitySelectionConfigure)
     {
         image.sprite = habilitySelectionConfigure.HabilityImage;
         selectionKeysConfigure = habilitySelectionConfigure.SelectionKeysConfigure;
         activationKey = habilitySelectionConfigure.ActivationKey;
+        catPrefab = habilitySelectionConfigure.CatPrefab;
     }
 
     public SelectionKeysConfigure GetRandomSelectionKey()

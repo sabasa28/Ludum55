@@ -45,3 +45,6 @@ TagManager:
   - name: Player
     uniqueID: 2877864821
     locked: 0
+  - name: Cats
+    uniqueID: 1033496171
+    locked: 0
