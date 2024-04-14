@@ -27,7 +27,13 @@ public class CatSpawnerHandler : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canSpawn)
         {
-            Instantiate(catPrefab, catsHolder).transform.position = playerTrans.position;
+            GameObject SpawnedGO = Instantiate(catPrefab, playerTrans.position, Quaternion.identity, catsHolder);
+            Cat SpawnedCat = SpawnedGO.GetComponent<Cat>();
+            if (SpawnedCat)
+            { 
+                SpawnedCat.TargetPosition = Utilities.GetMousePositionInWorld(Camera.main);
+            }
+
             canSpawn = false;
         }
     }

@@ -63,9 +63,10 @@ public class Rat : Entity
 
     private void OnTriggerEnter2D(Collider2D collision) //PLACEHOLDER para cuando choque contra un gato o algo
     {
-        //if (collision.CompareTag("AAAAAAAAAAAAAAAAA"))
-        //{
-        //    TakeDamage(1);
-        //}
+        if (collision.CompareTag("CatAttack"))
+        {
+            Debug.Log("DAMAGE");
+            TakeDamage(1);
+        }
     }
 }

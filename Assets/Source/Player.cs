@@ -11,6 +11,12 @@ public class Player : Entity
     [SerializeField]
     float InvulnerabilityFramesTime;
 
+    Camera CameraToUse;
+
+    private void Awake()
+    {
+        CameraToUse = Camera.main;
+    }
     void Update()
     {
         CatchInput();
@@ -28,8 +34,7 @@ public class Player : Entity
     {
         if (Input.GetButtonDown("Move"))
         {
-            DesiredPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            DesiredPosition.z = 0.0f;
+            DesiredPosition = Utilities.GetMousePositionInWorld(CameraToUse);
             bIsMoving = true;
         }
     }

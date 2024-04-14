@@ -8,4 +8,11 @@ public static class Utilities
     {
         return (v - a) / (b - a);
     }
+
+    public static Vector3 GetMousePositionInWorld(Camera camera)
+    {
+        Vector3 DesiredPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        DesiredPosition.z = 0.0f;
+        return DesiredPosition;
+    }
 }
