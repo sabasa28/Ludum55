@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,7 @@ public class HabilityButtonView : MonoBehaviour
     [SerializeField] private GameObject background = null;
     [SerializeField] private Image image = null;
 
-    private List<SelectionKeysConfigure> selectionKeysConfigure = null;
+    private int amountSelectionKey = 0;
     private KeyCode activationKey = KeyCode.None;
     private GameObject catPrefab = null;
 
@@ -18,14 +16,14 @@ public class HabilityButtonView : MonoBehaviour
     public void Configure(HabilitySelectionConfigure habilitySelectionConfigure)
     {
         image.sprite = habilitySelectionConfigure.HabilityImage;
-        selectionKeysConfigure = habilitySelectionConfigure.SelectionKeysConfigure;
+        amountSelectionKey = habilitySelectionConfigure.AmountOfKeys;
         activationKey = habilitySelectionConfigure.ActivationKey;
         catPrefab = habilitySelectionConfigure.CatPrefab;
     }
 
-    public SelectionKeysConfigure GetRandomSelectionKey()
+    public int GetAmountSelectionKey()
     {
-        return selectionKeysConfigure[Random.Range(0, selectionKeysConfigure.Count - 1)];
+        return amountSelectionKey;
     }
 
     public void SelectView(bool state)

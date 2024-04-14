@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    [SerializeField]
-    protected int InitialHealth;
-    [SerializeField]
-    protected float MovementSpeed;
-    [SerializeField]
-    protected int CurrentHealth;
+    [SerializeField] protected int InitialHealth;
+    [SerializeField] protected float MovementSpeed;
+    [SerializeField] protected int CurrentHealth;
 
     protected virtual void Start()
     {
         CurrentHealth = InitialHealth;
     }
+
     protected virtual void TakeDamage(int DamageAmount)
     {
         CurrentHealth = Mathf.Max(CurrentHealth - DamageAmount, 0);

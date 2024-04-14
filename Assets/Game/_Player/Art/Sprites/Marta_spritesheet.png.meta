@@ -1,0 +1,1033 @@
+fileFormatVersion: 2
+guid: 02df3ffb285c8a9439a1452025824190
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 4556
+        width: 655
+        height: 1015
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11fa622c8be4d284db17ed1331bb71bc
+      internalID: -382747649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 4550
+        width: 653
+        height: 976
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 5, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e8c68c1bc2bc940836f9576f4b3431
+      internalID: -1123578856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 3465
+        width: 653
+        height: 1085
+      alignment: 9
+      pivot: {x: 0.5, y: 0.468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ccb22832bc7c44bbbcc78c947c3ec8
+      internalID: 747701627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 4550
+        width: 651
+        height: 976
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5671583af3c53f84eafbb05e25e62317
+      internalID: -767582758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 4547
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09746dcda18f86746b38d5479c9001d5
+      internalID: -2130051283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2264
+        y: 4540
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a88f2b00ae3aa049bb6980d1bf4265b
+      internalID: -805348693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 3465
+        width: 653
+        height: 1016
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2a79f96f78f814d902c60690ba6991
+      internalID: -555517362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 3449
+        width: 631
+        height: 1015
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5cc1dc6ef7c5d8469b2e27d1e9a12c0
+      internalID: -1219034259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 3449
+        width: 629
+        height: 1015
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e71356a8689fe47b2f6e6285f56000
+      internalID: -327204358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 3457
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5052e0911c2ec40468f93fafd245b1a6
+      internalID: -1232003869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 3457
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40bf8a07169913646b65935839b739e5
+      internalID: -966148312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 3441
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75c65a9f44d8a14188d427091f9e223
+      internalID: -1068181407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 3441
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb44b45a2ad0c6439deca2aaec6af9e
+      internalID: -1730841632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 2345
+        width: 650
+        height: 1001
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49664155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4587ae8f3c1042842951383a2681a34c
+      internalID: 1799782615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 2862
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a9bb2280acb2a4f8f73a14fcf3f230
+      internalID: -1468284302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 2347
+        width: 973
+        height: 962
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1141e1965908e9846afedec99fa67b65
+      internalID: 1857518031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 2347
+        width: 973
+        height: 962
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce3fc853f083444ba1d22c31d708bef
+      internalID: -250552388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 2336
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903f2151ee3e280439e72fdff6e77c73
+      internalID: 1036376499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 2339
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707741eb21f3ddf4cb02d6e7c609f014
+      internalID: 548774553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 2684
+        y: 2339
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ddb16f933972647a3185a994ce9a0e
+      internalID: 1456662390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1219
+        width: 631
+        height: 980
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a6841f8a66366408a584b241c07bc4
+      internalID: 589245831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 1226
+        width: 668
+        height: 973
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42b6f5ca8c53014491a68080520f2f0
+      internalID: 2140137533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 1206
+        width: 648
+        height: 993
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa5e7c8b12b5cd48a1b2e56aeae486c
+      internalID: -413891287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 2531
+        y: 1209
+        width: 634
+        height: 990
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db59d14377e6fb49b39b4997a7951be
+      internalID: -1708055236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1218
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5593a10f149794597f8feb4ff280df
+      internalID: -1601476897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1218
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a480d113094e85846b36bbaa5a480892
+      internalID: -59933879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1215
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d36453fbe7cb2c43b20cfbf55b39536
+      internalID: -1621005772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 1218
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7513b0bed31f044bba759cee82ea047
+      internalID: -1530898295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 1215
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d112a10e7548242aa2787c7dde0fe0
+      internalID: -198517183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 88
+        width: 638
+        height: 973
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d431506079bf3324e9b12bfd340d7066
+      internalID: -1044342949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 91
+        width: 698
+        height: 998
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0b60de8fed450468ef8346c07f951e
+      internalID: -1390738973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 71
+        width: 667
+        height: 1018
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a7dbe696a27384eba9e09adb94f786
+      internalID: 535786756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 68
+        width: 653
+        height: 1018
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f403f799d4900e94392183b48718ccf0
+      internalID: 384902745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 82
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637717db7ca6606449f1d2e4e63435eb
+      internalID: -1564325741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 81
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafcbe5f91884b147a6095bc34c71640
+      internalID: 261164311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 80
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df829bcf8ff07d44496201a4e3ba8d0b
+      internalID: 1200968027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 81
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29fa78ab47237949a4f2c34206d2711
+      internalID: -1397364462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 81
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4c66cfc2774d34daa84a7d59c5777a
+      internalID: 85041051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 80
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5bdcc03eb763845a69fe79a9946927
+      internalID: 510231503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gertrudis_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 60
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29393128064d4f45bb2ae2b5a968650
+      internalID: 2120805303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cc18db49c3ee749408cc80a3848cf4d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Gertrudis_spritesheet_0: -382747649
+      Gertrudis_spritesheet_1: -1123578856
+      Gertrudis_spritesheet_10: -966148312
+      Gertrudis_spritesheet_11: -1068181407
+      Gertrudis_spritesheet_12: -1730841632
+      Gertrudis_spritesheet_13: 1799782615
+      Gertrudis_spritesheet_14: -1468284302
+      Gertrudis_spritesheet_15: 1857518031
+      Gertrudis_spritesheet_16: -250552388
+      Gertrudis_spritesheet_17: 1036376499
+      Gertrudis_spritesheet_18: 548774553
+      Gertrudis_spritesheet_19: 1456662390
+      Gertrudis_spritesheet_2: 747701627
+      Gertrudis_spritesheet_20: 589245831
+      Gertrudis_spritesheet_21: 2140137533
+      Gertrudis_spritesheet_22: -413891287
+      Gertrudis_spritesheet_23: -1708055236
+      Gertrudis_spritesheet_24: -1601476897
+      Gertrudis_spritesheet_25: -59933879
+      Gertrudis_spritesheet_26: -1621005772
+      Gertrudis_spritesheet_27: -1530898295
+      Gertrudis_spritesheet_28: -198517183
+      Gertrudis_spritesheet_29: -1044342949
+      Gertrudis_spritesheet_3: -767582758
+      Gertrudis_spritesheet_30: -1390738973
+      Gertrudis_spritesheet_31: 535786756
+      Gertrudis_spritesheet_32: 384902745
+      Gertrudis_spritesheet_33: -1564325741
+      Gertrudis_spritesheet_34: 261164311
+      Gertrudis_spritesheet_35: 1200968027
+      Gertrudis_spritesheet_36: -1397364462
+      Gertrudis_spritesheet_37: 85041051
+      Gertrudis_spritesheet_38: 510231503
+      Gertrudis_spritesheet_39: 2120805303
+      Gertrudis_spritesheet_4: -2130051283
+      Gertrudis_spritesheet_5: -805348693
+      Gertrudis_spritesheet_6: -555517362
+      Gertrudis_spritesheet_7: -1219034259
+      Gertrudis_spritesheet_8: -327204358
+      Gertrudis_spritesheet_9: -1232003869
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

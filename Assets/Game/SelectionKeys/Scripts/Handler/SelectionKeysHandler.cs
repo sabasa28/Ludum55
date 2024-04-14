@@ -23,20 +23,21 @@ public class SelectionKeysHandler : MonoBehaviour
     private bool loseSelection = false;
 
     private bool isActive = false;
-
-    private char[] keys =
+    
+    private char[] challengeKeys =
     {
-        'Q','W','E','R','T','Y','U','I','O','P',
-        'A','S','D','F','G','H','J','K','L',
-        'Z','X','C','V','B','N','M'
+        'W', 'A', 'S', 'D'
     };
 
-    private Func<SelectionKeysConfigure> onGetCurrentSelectionKey = null;
+    private Player playerRef = null;
+
+    private Func<int> onGetCurrentSelectionKey = null;
     private Func<GameObject> onGetCurrentCatPrefab = null;
     private Action<GameObject> onSpawnCat = null;
 
-    public void Initialize(Func<SelectionKeysConfigure> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
+    public void Initialize(Player playerRef, Func<int> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
     {
+        this.playerRef = playerRef;
         this.onGetCurrentSelectionKey = onGetCurrentSelectionKey;
         this.onGetCurrentCatPrefab = onGetCurrentCatPrefab;
         this.onSpawnCat = onSpawnCat;
@@ -46,8 +47,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     public void Configure()
     {
-        SelectionKeysConfigure callengeConfigure = onGetCurrentSelectionKey.Invoke();
-        challengeAmount = callengeConfigure.SequenseOfKeys.Count;
+        challengeAmount = onGetCurrentSelectionKey.Invoke();
 
         InstatiateNewButtons();
 
@@ -59,7 +59,9 @@ public class SelectionKeysHandler : MonoBehaviour
             }
             else
             {
-                selectionButtons[i].Configure(callengeConfigure.SequenseOfKeys[i]);
+                string key = challengeKeys[UnityEngine.Random.Range(0, challengeKeys.Length - 1)].ToString();
+
+                selectionButtons[i].Configure(key);
                 selectionButtons[i].gameObject.SetActive(true);
             }
         }
@@ -71,10 +73,14 @@ public class SelectionKeysHandler : MonoBehaviour
         {
             if (isActive)
             {
+                playerRef.ResetAnimationState();
+
                 ToggleHolder(false);
             }
             else
             {
+                playerRef.SetAnimationState(Player.TriggersAnimations.Casting);
+
                 Configure();
 
                 RestartButtons();
@@ -106,7 +112,12 @@ public class SelectionKeysHandler : MonoBehaviour
             loseSelection = true;
             actualButton = 0;
 
-            StartCoroutine(ClosePopUpTimer(null));
+            StartCoroutine(ClosePopUpTimer(
+                () =>
+                {
+                    playerRef.SetStunState();
+                    playerRef.SetAnimationState(Player.TriggersAnimations.WrongCat);
+                }));
         }
     }
 
@@ -118,9 +129,9 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private bool GetValidKey()
     {
-        for (int i = 0; i < keys.Length; i++)
+        for (int i = 0; i < challengeKeys.Length; i++)
         {
-            if (Input.GetKeyDown(keys[i].ToString().ToLower()))
+            if (Input.GetKeyDown(challengeKeys[i].ToString().ToLower()))
             {
                 return true;
             }
@@ -131,7 +142,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private void WinSelection()
     {
-        if(actualButton >= challengeAmount)
+        if (actualButton >= challengeAmount)
         {
             foreach (var item in selectionButtons)
             {
@@ -141,12 +152,18 @@ public class SelectionKeysHandler : MonoBehaviour
                 }
             }
 
-            StartCoroutine(ClosePopUpTimer(() => onSpawnCat.Invoke(onGetCurrentCatPrefab.Invoke())));
+            StartCoroutine(ClosePopUpTimer(
+                () =>
+                {
+                    playerRef.SetAnimationState(Player.TriggersAnimations.CorrectCat);
+                    onSpawnCat.Invoke(onGetCurrentCatPrefab.Invoke());
+                }));
         }
     }
 
     private void RestartButtons()
     {
+        loseSelection = false;
         actualButton = 0;
 
         foreach (var item in selectionButtons)

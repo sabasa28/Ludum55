@@ -37,9 +37,9 @@ public class HabilitySelectionHandler : MonoBehaviour
         }
     }
 
-    public SelectionKeysConfigure GetCurrentSelectionKey()
+    public int GetCurrentSelectionKey()
     {
-        return currentHability.GetRandomSelectionKey();
+        return currentHability.GetAmountSelectionKey();
     }
 
     public GameObject GetCurrentCatPrefab()

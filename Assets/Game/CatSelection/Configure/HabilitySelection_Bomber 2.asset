@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e73be3208468bc44bad4b7d43f30311, type: 3}
   m_Name: HabilitySelection_Bomber 2
   m_EditorClassIdentifier: 
-  selectionKeysConfigure:
-  - {fileID: 11400000, guid: 570956d81eebd7943bfc197286bf54ad, type: 2}
+  amountOfKeys: 5
   habilityImage: {fileID: 21300000, guid: 8d42588b79263134288e579ff217ac9d, type: 3}
   activationKey: 99
   catPrefab: {fileID: 3070367371919139068, guid: aec0ec41f21624d4cbeeb3f978630f23, type: 3}

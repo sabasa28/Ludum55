@@ -13,9 +13,9 @@ public class SelectionButtonView : MonoBehaviour
     [SerializeField] private Color correctColor = Color.white;
     [SerializeField] private Color wrongColor = Color.white;
 
-    private KeyCode personalKeyCode = KeyCode.None;
+    private string personalKeyCode = null;
 
-    public KeyCode PersonalKeyCode { get => personalKeyCode; }
+    public string PersonalKeyCode { get => personalKeyCode; }
 
     public enum SelectionState
     {
@@ -28,10 +28,10 @@ public class SelectionButtonView : MonoBehaviour
     private const string wrongTriggerAnim = "selectionButton_wrong";
     private const string startAnim = "start";
 
-    public void Configure(KeyCode personalKeyCode)
+    public void Configure(string personalKey)
     {
-        txtKey.text = personalKeyCode.ToString();
-        this.personalKeyCode = personalKeyCode;
+        txtKey.text = personalKey;
+        personalKeyCode = personalKey.ToLower();
     }
 
     public void UpdateState(SelectionState state)
