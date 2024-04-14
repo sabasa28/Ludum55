@@ -2,19 +2,25 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Handlers")]
     [SerializeField] private SelectionKeysHandler selectionKeysHandler = null;
-    [Space]
-    [Header("TEST")]
-    [SerializeField] private SelectionKeysConfigure configureTest = null;
+    [SerializeField] private HabilitySelectionHandler habilitySelectionHandler = null;
+    [SerializeField] private CatSpawnerHandler catSpawnerHandler = null;
+
+    [Header("Handlers")]
+    [SerializeField] private Player player = null;
 
     void Start()
     {
-        selectionKeysHandler.Initialize();
-        selectionKeysHandler.Configure(configureTest, () => Debug.LogWarning("COMPLETE"), () => Debug.LogWarning("FAILURE"));
+        habilitySelectionHandler.Initialize();
+        catSpawnerHandler.Initialize(player.transform);
+        selectionKeysHandler.Initialize(habilitySelectionHandler.GetCurrentSelectionKey, habilitySelectionHandler.GetCurrentCatPrefab, catSpawnerHandler.GenerateCat);
     }
 
     void Update()
     {
+        habilitySelectionHandler.UpdateButtonsDetection();
         selectionKeysHandler.UpdateSelection();
+        catSpawnerHandler.UpdateInput();
     }
 }

@@ -8,6 +8,7 @@ public class SelectionKeysHandler : MonoBehaviour
 {
     [Header("General Data")]
     [SerializeField] private Transform holder = null;
+    [SerializeField] private Transform holderPrefabs = null;
 
     [Header("Buttons Data")]
     [SerializeField] private GameObject buttonPrefab = null;
@@ -23,20 +24,30 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private bool isActive = false;
 
-    private Action onComplete = null;
-    private Action onFailure = null;
-
-    public void Initialize()
+    private char[] keys =
     {
+        'Q','W','E','R','T','Y','U','I','O','P',
+        'A','S','D','F','G','H','J','K','L',
+        'Z','X','C','V','B','N','M'
+    };
+
+    private Func<SelectionKeysConfigure> onGetCurrentSelectionKey = null;
+    private Func<GameObject> onGetCurrentCatPrefab = null;
+    private Action<GameObject> onSpawnCat = null;
+
+    public void Initialize(Func<SelectionKeysConfigure> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
+    {
+        this.onGetCurrentSelectionKey = onGetCurrentSelectionKey;
+        this.onGetCurrentCatPrefab = onGetCurrentCatPrefab;
+        this.onSpawnCat = onSpawnCat;
+
         selectionButtons = new List<SelectionButtonView>();
     }
 
-    public void Configure(SelectionKeysConfigure selectionKeysConfigure, Action onComplete = null, Action onFailure = null)
+    public void Configure()
     {
-        this.onComplete = onComplete;
-        this.onFailure = onFailure;
-
-        challengeAmount = selectionKeysConfigure.SequenseOfKeys.Count;
+        SelectionKeysConfigure callengeConfigure = onGetCurrentSelectionKey.Invoke();
+        challengeAmount = callengeConfigure.SequenseOfKeys.Count;
 
         InstatiateNewButtons();
 
@@ -48,7 +59,8 @@ public class SelectionKeysHandler : MonoBehaviour
             }
             else
             {
-                selectionButtons[i].Configure(selectionKeysConfigure.SequenseOfKeys[i]);
+                selectionButtons[i].Configure(callengeConfigure.SequenseOfKeys[i]);
+                selectionButtons[i].gameObject.SetActive(true);
             }
         }
     }
@@ -63,6 +75,8 @@ public class SelectionKeysHandler : MonoBehaviour
             }
             else
             {
+                Configure();
+
                 RestartButtons();
                 ToggleHolder(true);
             }
@@ -74,10 +88,10 @@ public class SelectionKeysHandler : MonoBehaviour
             return;
         }
 
-        if(!Input.anyKeyDown || Input.GetKeyDown(KeyCode.Escape))
+        if(!Input.anyKeyDown || !GetValidKey())
         {
             return;
-        }
+        }        
 
         if (Input.GetKeyDown(selectionButtons[actualButton].PersonalKeyCode))
         {
@@ -92,7 +106,7 @@ public class SelectionKeysHandler : MonoBehaviour
             loseSelection = true;
             actualButton = 0;
 
-            StartCoroutine(ClosePopUpTimer(onFailure));
+            StartCoroutine(ClosePopUpTimer(null));
         }
     }
 
@@ -100,6 +114,19 @@ public class SelectionKeysHandler : MonoBehaviour
     {
         holder.gameObject.SetActive(state);
         isActive = state;
+    }
+
+    private bool GetValidKey()
+    {
+        for (int i = 0; i < keys.Length; i++)
+        {
+            if (Input.GetKeyDown(keys[i].ToString().ToLower()))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void WinSelection()
@@ -114,7 +141,7 @@ public class SelectionKeysHandler : MonoBehaviour
                 }
             }
 
-            StartCoroutine(ClosePopUpTimer(onComplete));
+            StartCoroutine(ClosePopUpTimer(() => onSpawnCat.Invoke(onGetCurrentCatPrefab.Invoke())));
         }
     }
 
@@ -136,7 +163,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
             for (int i = 0; i < newAmount; i++)
             {
-                selectionButtons.Add(Instantiate(buttonPrefab, holder.transform).GetComponent<SelectionButtonView>());
+                selectionButtons.Add(Instantiate(buttonPrefab, holderPrefabs.transform).GetComponent<SelectionButtonView>());
             }
         }
     }

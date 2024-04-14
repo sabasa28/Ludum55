@@ -15,6 +15,7 @@ public class Player : Entity
     {
         CatchInput();
     }
+
     private void FixedUpdate()
     {
         if (bIsMoving)
