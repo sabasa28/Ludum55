@@ -43,9 +43,13 @@ public class Rat : Entity
 
     protected override void Die()
     {
-        CurrentState = State.Dying;
-        Destroy(gameObject);
-        //REMOVER CUANDO AGREGUEMOS LA ANIMACION
+        if (bIsAlive)
+        {
+            bIsAlive = false;
+            CurrentState = State.Dying;
+            GameController.Get().RatsKilled++;
+            Destroy(gameObject); //REMOVER CUANDO AGREGUEMOS LA ANIMACION
+        }
     }
 
     IEnumerator SpawnCoroutine()
@@ -65,7 +69,6 @@ public class Rat : Entity
     {
         if (collision.CompareTag("CatAttack"))
         {
-            Debug.Log("DAMAGE");
             TakeDamage(1);
         }
     }

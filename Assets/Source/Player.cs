@@ -79,7 +79,11 @@ public class Player : Entity
 
     protected override void Die()
     {
-        Debug.Log("GAME OVER, TE MORISTE");
+        if (bIsAlive)
+        {
+            bIsAlive = false;
+            GameController.Get().EndGame();
+        }
     }
 
     private void Update()
@@ -89,7 +93,7 @@ public class Player : Entity
 
     private void FixedUpdate()
     {
-        if (!isStunned && bIsMoving)
+        if (!isStunned && bIsMoving && bIsAlive)
         {
             bIsMoving = !MoveTowards(desiredPosition);
 
@@ -102,7 +106,7 @@ public class Player : Entity
 
     private void CatchInput()
     {
-        if (!isStunned && Input.GetButtonDown("Move"))
+        if (!isStunned && bIsAlive && Input.GetButtonDown("Move"))
         {
             desiredPosition = Utilities.GetMousePositionInWorld(CameraToUse);
             bIsMoving = true;

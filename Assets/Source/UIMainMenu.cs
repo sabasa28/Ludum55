@@ -12,7 +12,7 @@ public class UIMainMenu : MonoBehaviour
 
     public void GoToGameplayScene()
     {
-        SceneManager.LoadScene("Iñaki Test");
+        SceneManager.LoadScene("Gameplay");
     }
     public void SetCreditsPanelVisibility(bool IsVisible)
     {

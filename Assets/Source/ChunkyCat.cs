@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChunkyCat : Cat
 {
-    [SerializeField] CircleCollider2D TriggerForDamage;
+    [SerializeField] ChunkyCatAOE TriggerForDamage;
     protected override void FinishedSpawning()
     {
         ChangeCurrentState(State.Moving);
@@ -29,7 +29,7 @@ public class ChunkyCat : Cat
                 StartCoroutine(MoveToTargetCoroutine());
                 break;
             case State.Attacking:
-                TriggerForDamage.enabled = true;
+                TriggerForDamage.ActivateDamage();
                 break;
             case State.Dying:
                 Destroy(gameObject);

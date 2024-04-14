@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Cat : MonoBehaviour
 {
     public Vector3 TargetPosition;
-
+    SpriteRenderer SpriteRend;
     public enum State
     { 
         Spawning,
@@ -14,6 +14,15 @@ public abstract class Cat : MonoBehaviour
         Dying
     }
     public State CurrentState = State.Spawning;
+
+    private void Awake()
+    {
+        SpriteRend = GetComponentInChildren<SpriteRenderer>();
+    }
+    public virtual void Start()
+    {
+        if (TargetPosition.x < transform.position.x) SpriteRend.flipX = true;
+    }
 
     protected abstract void FinishedSpawning();
 
