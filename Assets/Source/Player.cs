@@ -6,6 +6,10 @@ public class Player : Entity
 {
     Vector3 DesiredPosition;
     bool bIsMoving;
+    bool bIsVulnerable = true;
+
+    [SerializeField]
+    float InvulnerabilityFramesTime;
 
     void Update()
     {
@@ -29,8 +33,27 @@ public class Player : Entity
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            if (bIsVulnerable)
+            { 
+                TakeDamage(1); //tenemos un solo enemigo y siempre mete 1 de daño, me tomo la libertad de magic numberearlo
+                StartCoroutine(InvulnerabilityFrames());
+            }
+        }
+    }
+
     protected override void Die()
     {
+        Debug.Log("GAME OVER, TE MORISTE");
+    }
 
+    IEnumerator InvulnerabilityFrames()
+    {
+        bIsVulnerable = false;
+        yield return new WaitForSeconds(InvulnerabilityFramesTime);
+        bIsVulnerable = true;
     }
 }

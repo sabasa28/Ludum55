@@ -7,8 +7,7 @@ public class Rat : Entity
     [SerializeField]
     float TimeToSpawn;
 
-    [SerializeField]
-    Entity EntityToChase;
+    public Entity EntityToChase;
 
     enum State
     { 
@@ -18,8 +17,9 @@ public class Rat : Entity
     }
     State CurrentState = State.Spawning;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(SpawnCoroutine());
     }
 
@@ -44,11 +44,8 @@ public class Rat : Entity
     protected override void Die()
     {
         CurrentState = State.Dying;
-    }
-
-    float InverseLerp(float a, float b, float v)
-    {
-        return (v - a) / (b - a);
+        Destroy(gameObject);
+        //REMOVER CUANDO AGREGUEMOS LA ANIMACION
     }
 
     IEnumerator SpawnCoroutine()
@@ -57,10 +54,18 @@ public class Rat : Entity
         float SpawnTime = Time.time + TimeToSpawn;
         while (Time.time < SpawnTime)
         {
-            transform.localScale = Vector3.one * InverseLerp(InitialTime, SpawnTime, Time.time);
+            transform.localScale = Vector3.one * Utilities.InverseLerp(InitialTime, SpawnTime, Time.time);
             yield return null;
         }
         transform.localScale = Vector3.one;
         CurrentState = State.Chasing;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) //PLACEHOLDER para cuando choque contra un gato o algo
+    {
+        //if (collision.CompareTag("AAAAAAAAAAAAAAAAA"))
+        //{
+        //    TakeDamage(1);
+        //}
     }
 }
