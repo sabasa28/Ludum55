@@ -23,19 +23,17 @@ public class SelectionKeysHandler : MonoBehaviour
     private bool loseSelection = false;
 
     private bool isActive = false;
-
-    private char[] keys =
+    
+    private char[] challengeKeys =
     {
-        'Q','W','E','R','T','Y','U','I','O','P',
-        'A','S','D','F','G','H','J','K','L',
-        'Z','X','C','V','B','N','M'
+        'W', 'A', 'S', 'D'
     };
 
-    private Func<SelectionKeysConfigure> onGetCurrentSelectionKey = null;
+    private Func<int> onGetCurrentSelectionKey = null;
     private Func<GameObject> onGetCurrentCatPrefab = null;
     private Action<GameObject> onSpawnCat = null;
 
-    public void Initialize(Func<SelectionKeysConfigure> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
+    public void Initialize(Func<int> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
     {
         this.onGetCurrentSelectionKey = onGetCurrentSelectionKey;
         this.onGetCurrentCatPrefab = onGetCurrentCatPrefab;
@@ -46,8 +44,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     public void Configure()
     {
-        SelectionKeysConfigure callengeConfigure = onGetCurrentSelectionKey.Invoke();
-        challengeAmount = callengeConfigure.SequenseOfKeys.Count;
+        challengeAmount = onGetCurrentSelectionKey.Invoke();
 
         InstatiateNewButtons();
 
@@ -59,7 +56,9 @@ public class SelectionKeysHandler : MonoBehaviour
             }
             else
             {
-                selectionButtons[i].Configure(callengeConfigure.SequenseOfKeys[i]);
+                string key = challengeKeys[UnityEngine.Random.Range(0, challengeKeys.Length - 1)].ToString();
+
+                selectionButtons[i].Configure(key);
                 selectionButtons[i].gameObject.SetActive(true);
             }
         }
@@ -118,9 +117,9 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private bool GetValidKey()
     {
-        for (int i = 0; i < keys.Length; i++)
+        for (int i = 0; i < challengeKeys.Length; i++)
         {
-            if (Input.GetKeyDown(keys[i].ToString().ToLower()))
+            if (Input.GetKeyDown(challengeKeys[i].ToString().ToLower()))
             {
                 return true;
             }
@@ -147,6 +146,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private void RestartButtons()
     {
+        loseSelection = false;
         actualButton = 0;
 
         foreach (var item in selectionButtons)
