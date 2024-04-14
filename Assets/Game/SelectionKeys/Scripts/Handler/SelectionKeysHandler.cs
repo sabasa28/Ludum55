@@ -35,6 +35,8 @@ public class SelectionKeysHandler : MonoBehaviour
     private Func<GameObject> onGetCurrentCatPrefab = null;
     private Action<GameObject> onSpawnCat = null;
 
+    public bool IsActive { get => isActive; }
+
     public void Initialize(Player playerRef, Func<int> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
     {
         this.playerRef = playerRef;
@@ -67,28 +69,25 @@ public class SelectionKeysHandler : MonoBehaviour
         }
     }
 
-    public void UpdateSelection()
+    public void ToggleSelection()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isActive)
         {
-            if (isActive)
-            {
-                playerRef.ResetAnimationState();
-
-                ToggleHolder(false);
-            }
-            else
-            {
-                playerRef.SetAnimationState(Player.TriggersAnimations.Casting);
-
-                Configure();
-
-                RestartButtons();
-                ToggleHolder(true);
-            }
             return;
         }
+        else
+        {
+            playerRef.SetAnimationState(Player.TriggersAnimations.Casting);
 
+            Configure();
+
+            RestartButtons();
+            ToggleHolder(true);
+        }
+    }
+
+    public void UpdateSelection()
+    {
         if (loseSelection || !isActive) 
         {
             return;

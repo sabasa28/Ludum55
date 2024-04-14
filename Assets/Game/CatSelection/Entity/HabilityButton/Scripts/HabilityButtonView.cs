@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class HabilityButtonView : MonoBehaviour
 {
-    [SerializeField] private GameObject background = null;
     [SerializeField] private Image image = null;
+    [SerializeField] private Image background = null;
+    [SerializeField] private Animator animator = null;
 
     private int amountSelectionKey = 0;
     private KeyCode activationKey = KeyCode.None;
@@ -12,6 +13,8 @@ public class HabilityButtonView : MonoBehaviour
 
     public KeyCode ActivationKey { get => activationKey; }
     public GameObject CatPrefab { get => catPrefab; }
+
+    private const string TouchAnimation = "TouchAnimation";
 
     public void Configure(HabilitySelectionConfigure habilitySelectionConfigure)
     {
@@ -26,8 +29,13 @@ public class HabilityButtonView : MonoBehaviour
         return amountSelectionKey;
     }
 
-    public void SelectView(bool state)
+    public void ToggleBackground(bool state)
     {
-        background.SetActive(state);
+        background.enabled = state;
+    }
+
+    public void SelectView()
+    {
+        animator.Play(TouchAnimation);
     }
 }
