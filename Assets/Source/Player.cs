@@ -104,7 +104,7 @@ public class Player : Entity
     {
         if (!isStunned && Input.GetButtonDown("Move"))
         {
-            DesiredPosition = Utilities.GetMousePositionInWorld(CameraToUse);
+            desiredPosition = Utilities.GetMousePositionInWorld(CameraToUse);
             bIsMoving = true;
 
             characterSprite.flipX = transform.position.x > desiredPosition.x;
