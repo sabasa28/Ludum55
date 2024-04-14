@@ -5,9 +5,6 @@ public class CatSpawnerHandler : MonoBehaviour
     [Header("General Data")]
     [SerializeField] private Transform catsHolder = null;
 
-    [Header("Custom Values")]
-    [SerializeField] private float offset = 5f;
-
     private GameObject catPrefab = null;
     private Transform playerTrans = null;
     private bool canSpawn = false;
