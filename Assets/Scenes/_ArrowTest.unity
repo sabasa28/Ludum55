@@ -339,7 +339,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: e1507f65a83380740b1a05952ace5c6e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -641,22 +641,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622804432480557957, guid: 4600fd41fbe03974e8062600e975896d, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622804432480557957, guid: 4600fd41fbe03974e8062600e975896d, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.18560877
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622804432480557957, guid: 4600fd41fbe03974e8062600e975896d, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.20148061
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622804432480557957, guid: 4600fd41fbe03974e8062600e975896d, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.4056604
-      objectReference: {fileID: 0}
     - target: {fileID: 8364674010850715664, guid: 4600fd41fbe03974e8062600e975896d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -944,6 +928,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 861010547}
     m_Modifications:
+    - target: {fileID: 3993561134393681040, guid: f5ea510f07132ae499099dd52d52b3f0, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4835767132851767759, guid: f5ea510f07132ae499099dd52d52b3f0, type: 3}
       propertyPath: m_Name
       value: SelectionHandler

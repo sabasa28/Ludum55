@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     {
         habilitySelectionHandler.Initialize();
         catSpawnerHandler.Initialize(player.transform);
-        selectionKeysHandler.Initialize(habilitySelectionHandler.GetCurrentSelectionKey, habilitySelectionHandler.GetCurrentCatPrefab, catSpawnerHandler.GenerateCat);
+        selectionKeysHandler.Initialize(player, habilitySelectionHandler.GetCurrentSelectionKey, habilitySelectionHandler.GetCurrentCatPrefab, catSpawnerHandler.GenerateCat);
     }
 
     void Update()

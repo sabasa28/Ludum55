@@ -29,12 +29,15 @@ public class SelectionKeysHandler : MonoBehaviour
         'W', 'A', 'S', 'D'
     };
 
+    private Player playerRef = null;
+
     private Func<int> onGetCurrentSelectionKey = null;
     private Func<GameObject> onGetCurrentCatPrefab = null;
     private Action<GameObject> onSpawnCat = null;
 
-    public void Initialize(Func<int> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
+    public void Initialize(Player playerRef, Func<int> onGetCurrentSelectionKey, Func<GameObject> onGetCurrentCatPrefab, Action<GameObject> onSpawnCat)
     {
+        this.playerRef = playerRef;
         this.onGetCurrentSelectionKey = onGetCurrentSelectionKey;
         this.onGetCurrentCatPrefab = onGetCurrentCatPrefab;
         this.onSpawnCat = onSpawnCat;
@@ -70,10 +73,14 @@ public class SelectionKeysHandler : MonoBehaviour
         {
             if (isActive)
             {
+                playerRef.ResetAnimationState();
+
                 ToggleHolder(false);
             }
             else
             {
+                playerRef.SetAnimationState(Player.TriggersAnimations.Casting);
+
                 Configure();
 
                 RestartButtons();
@@ -105,7 +112,12 @@ public class SelectionKeysHandler : MonoBehaviour
             loseSelection = true;
             actualButton = 0;
 
-            StartCoroutine(ClosePopUpTimer(null));
+            StartCoroutine(ClosePopUpTimer(
+                () =>
+                {
+                    playerRef.SetStunState();
+                    playerRef.SetAnimationState(Player.TriggersAnimations.WrongCat);
+                }));
         }
     }
 
@@ -130,7 +142,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private void WinSelection()
     {
-        if(actualButton >= challengeAmount)
+        if (actualButton >= challengeAmount)
         {
             foreach (var item in selectionButtons)
             {
@@ -140,7 +152,12 @@ public class SelectionKeysHandler : MonoBehaviour
                 }
             }
 
-            StartCoroutine(ClosePopUpTimer(() => onSpawnCat.Invoke(onGetCurrentCatPrefab.Invoke())));
+            StartCoroutine(ClosePopUpTimer(
+                () =>
+                {
+                    playerRef.SetAnimationState(Player.TriggersAnimations.CorrectCat);
+                    onSpawnCat.Invoke(onGetCurrentCatPrefab.Invoke());
+                }));
         }
     }
 

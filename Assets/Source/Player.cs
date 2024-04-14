@@ -1,36 +1,109 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Entity
 {
-    Vector3 DesiredPosition;
-    bool bIsMoving;
-    bool bIsVulnerable = true;
+    [Header("Player Variables")]
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private SpriteRenderer characterSprite = null;
+    [Space]
+    [SerializeField] float invulnerabilityFramesTime = 0.5f;
+    [SerializeField] float stunFramesTime = 1f;
 
-    [SerializeField]
-    float InvulnerabilityFramesTime;
+    private Vector3 desiredPosition;
+    private bool bIsMoving;
+    private bool bIsVulnerable = true;
+    private bool isStunned = false;
 
-    void Update()
+    private const string isWalking = "isWalking";
+    private const string stopStun = "stopStun";
+    private const string casting = "casting";
+    private const string correctCat = "correctCat";
+    private const string wrongCat = "wrongCat";
+
+    public enum TriggersAnimations
+    {
+        StopStun,
+        Casting,
+        CorrectCat,
+        WrongCat
+    }
+
+    public void SetStunState()
+    {
+        IEnumerator Timer()
+        {
+            yield return new WaitForSeconds(stunFramesTime);
+
+            animator.SetTrigger(stopStun);
+            isStunned = false;
+        }
+
+        desiredPosition = Vector3.zero;
+        bIsMoving = false;
+        isStunned = true;
+
+        StartCoroutine(Timer());
+    }
+
+    public void ResetAnimationState()
+    {
+        animator.Play("Idle");
+    }
+
+    public void SetAnimationState(TriggersAnimations state)
+    {
+        switch (state)
+        {
+            case TriggersAnimations.StopStun:
+                animator.SetTrigger(stopStun);
+                break;
+            case TriggersAnimations.Casting:
+                animator.SetTrigger(casting);
+                break;
+            case TriggersAnimations.CorrectCat:
+                animator.SetTrigger(correctCat);
+                break;
+            case TriggersAnimations.WrongCat:
+                animator.SetTrigger(wrongCat);
+                break;
+        }
+    }
+
+    protected override void Die()
+    {
+        Debug.Log("GAME OVER, TE MORISTE");
+    }
+
+    private void Update()
     {
         CatchInput();
     }
 
     private void FixedUpdate()
     {
-        if (bIsMoving)
+        if (!isStunned && bIsMoving)
         {
-            bIsMoving = !MoveTowards(DesiredPosition);
+            bIsMoving = !MoveTowards(desiredPosition);
+
+            if(!bIsMoving)
+            {
+                animator.SetBool(isWalking, bIsMoving);
+            }
         }
     }
 
-    void CatchInput()
+    private void CatchInput()
     {
-        if (Input.GetButtonDown("Move"))
+        if (!isStunned && Input.GetButtonDown("Move"))
         {
-            DesiredPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            DesiredPosition.z = 0.0f;
+            desiredPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            desiredPosition.z = 0.0f;
             bIsMoving = true;
+
+            characterSprite.flipX = transform.position.x > desiredPosition.x;
+
+            animator.SetBool(isWalking, bIsMoving);
         }
     }
 
@@ -46,15 +119,10 @@ public class Player : Entity
         }
     }
 
-    protected override void Die()
-    {
-        Debug.Log("GAME OVER, TE MORISTE");
-    }
-
-    IEnumerator InvulnerabilityFrames()
+    private IEnumerator InvulnerabilityFrames()
     {
         bIsVulnerable = false;
-        yield return new WaitForSeconds(InvulnerabilityFramesTime);
+        yield return new WaitForSeconds(invulnerabilityFramesTime);
         bIsVulnerable = true;
     }
 }
