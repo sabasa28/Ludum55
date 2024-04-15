@@ -37,7 +37,6 @@ public class Rat : Entity
                 MoveTowards(EntityToChase.transform.position);
                 break;
             case State.Dying:
-                //desactivar collision para que no inflija daño y hacer animacion de muerte
                 break;
             default:
                 break;
@@ -49,12 +48,16 @@ public class Rat : Entity
         if (bIsAlive)
         {
             animator.SetTrigger(deathTrigger);
-
+            BoxCollider2D[] BoxCollider2Ds = GetComponents<BoxCollider2D>();
+            foreach (BoxCollider2D Coll in BoxCollider2Ds)
+            { 
+                Coll.enabled = false;
+            }
             bIsAlive = false;
             CurrentState = State.Dying;
             GameController.Get().RatsKilled();
 
-            Destroy(gameObject, timeToDelete); //REMOVER CUANDO AGREGUEMOS LA ANIMACION
+            Destroy(gameObject, timeToDelete);
         }
     }
 
@@ -68,7 +71,10 @@ public class Rat : Entity
             yield return null;
         }
         transform.localScale = Vector3.one;
-        CurrentState = State.Chasing;
+        if (bIsAlive)
+        { 
+            CurrentState = State.Chasing;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //PLACEHOLDER para cuando choque contra un gato o algo

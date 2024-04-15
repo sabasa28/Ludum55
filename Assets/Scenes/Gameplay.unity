@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 7492307734499159588, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
       propertyPath: LeftWall
       value: 
-      objectReference: {fileID: 1321752345}
+      objectReference: {fileID: 1618179760}
     - target: {fileID: 7492307734499159588, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
       propertyPath: RightWall
       value: 
@@ -2486,6 +2486,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604899493}
   m_CullTransparentMesh: 1
+--- !u!4 &1618179760 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5271715926992217128, guid: 66d8ec101523d1c429d64aeb9f57c365, type: 3}
+  m_PrefabInstance: {fileID: 5440649727205653266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750503436
 GameObject:
   m_ObjectHideFlags: 0

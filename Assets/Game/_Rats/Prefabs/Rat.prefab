@@ -54,6 +54,7 @@ MonoBehaviour:
   CurrentHealth: 0
   animator: {fileID: 271737637899262750}
   TimeToSpawn: 2
+  SolidCollider: {fileID: 9006676535021052049}
   EntityToChase: {fileID: 0}
 --- !u!61 &9006676535021052049
 BoxCollider2D:

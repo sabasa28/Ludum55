@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1417102475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1219034259, guid: 02df3ffb285c8a9439a1452025824190, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -262,6 +262,7 @@ MonoBehaviour:
   CurrentHealth: 5
   animator: {fileID: 4236615752483265377}
   characterSprite: {fileID: 4182468584782447395}
+  invulnerabilityColor: {r: 1, g: 0, b: 0, a: 1}
   invulnerabilityFramesTime: 3
   stunFramesTime: 2
 --- !u!61 &1165508767715197896
