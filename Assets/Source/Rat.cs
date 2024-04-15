@@ -6,6 +6,7 @@ public class Rat : Entity
     [Header("Rat Variables")]
     [SerializeField] private Animator animator = null;
     [SerializeField] private float TimeToSpawn = 0f;
+    SpriteRenderer SpriteRend;
 
     public Entity EntityToChase;
 
@@ -20,6 +21,10 @@ public class Rat : Entity
     private const string deathTrigger = "death";
     private const float timeToDelete = 5f;
 
+    private void Awake()
+    {
+        SpriteRend = GetComponentInChildren<SpriteRenderer>();
+    }
     protected override void Start()
     {
         base.Start();
@@ -35,6 +40,14 @@ public class Rat : Entity
                 break;
             case State.Chasing:
                 MoveTowards(EntityToChase.transform.position);
+                if (EntityToChase.transform.position.x < transform.position.x)
+                {
+                    if (!SpriteRend.flipX) SpriteRend.flipX = true;
+                }
+                else
+                {
+                    if (SpriteRend.flipX) SpriteRend.flipX = false;
+                }
                 break;
             case State.Dying:
                 break;
