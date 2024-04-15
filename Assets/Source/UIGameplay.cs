@@ -1,17 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIGameplay : MonoBehaviour
 {
-    [SerializeField]
-    GameObject EndgamePanel;
-    [SerializeField]
-    TextMeshProUGUI RatsKilledText;
-    [SerializeField]
-    TextMeshProUGUI TimeAliveText;
+    [SerializeField] private GameObject EndgamePanel = null;
+    [SerializeField] private TextMeshProUGUI RatsKilledText = null;
+    [SerializeField] private TextMeshProUGUI TimeAliveText = null;
 
     public void DisplayEndgamePanel(int RatsKilled, float SecondsAlive)
     {

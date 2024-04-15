@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,7 +16,9 @@ public class Player : Entity
     private bool bIsVulnerable = true;
     private bool isStunned = false;
 
-    Camera CameraToUse;
+    private Camera CameraToUse;
+
+    private Action<int> onUpdateUI = null;
 
     private void Awake()
     {
@@ -34,6 +37,11 @@ public class Player : Entity
         Casting,
         CorrectCat,
         WrongCat
+    }
+
+    public void Configure(Action<int> onUpdateUI)
+    {
+        this.onUpdateUI = onUpdateUI;
     }
 
     public void SetStunState()
@@ -75,6 +83,13 @@ public class Player : Entity
                 animator.SetTrigger(wrongCat);
                 break;
         }
+    }
+
+    protected override void TakeDamage(int DamageAmount)
+    {
+        base.TakeDamage(DamageAmount);
+
+        onUpdateUI.Invoke(DamageAmount);
     }
 
     protected override void Die()

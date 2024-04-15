@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CatSpawnerHandler : MonoBehaviour
@@ -9,9 +10,12 @@ public class CatSpawnerHandler : MonoBehaviour
     private Transform playerTrans = null;
     private bool canSpawn = false;
 
-    public void Initialize(Transform playerTrans)
+    private Action onResetButtons = null;
+
+    public void Initialize(Transform playerTrans, Action onResetButtons)
     {
         this.playerTrans = playerTrans;
+        this.onResetButtons = onResetButtons;
     }
 
     public void GenerateCat(GameObject catPrefab)
@@ -24,6 +28,8 @@ public class CatSpawnerHandler : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canSpawn)
         {
+            onResetButtons.Invoke();
+
             GameObject SpawnedGO = Instantiate(catPrefab, playerTrans.position, Quaternion.identity, catsHolder);
             Cat SpawnedCat = SpawnedGO.GetComponent<Cat>();
             if (SpawnedCat)

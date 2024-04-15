@@ -1,21 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rat : Entity
 {
-    [SerializeField]
-    float TimeToSpawn;
+    [Header("Rat Variables")]
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private float TimeToSpawn = 0f;
 
     public Entity EntityToChase;
 
-    enum State
+    private enum State
     { 
         Spawning,
         Chasing,
         Dying
     }
-    State CurrentState = State.Spawning;
+    private State CurrentState = State.Spawning;
+
+    private const string deathTrigger = "death";
+    private const float timeToDelete = 5f;
 
     protected override void Start()
     {
@@ -45,10 +48,13 @@ public class Rat : Entity
     {
         if (bIsAlive)
         {
+            animator.SetTrigger(deathTrigger);
+
             bIsAlive = false;
             CurrentState = State.Dying;
-            GameController.Get().RatsKilled++;
-            Destroy(gameObject); //REMOVER CUANDO AGREGUEMOS LA ANIMACION
+            GameController.Get().RatsKilled();
+
+            Destroy(gameObject, timeToDelete); //REMOVER CUANDO AGREGUEMOS LA ANIMACION
         }
     }
 

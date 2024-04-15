@@ -50,6 +50,12 @@ public class HabilitySelectionHandler : MonoBehaviour
         }
     }
 
+    public void ResetAllButtons()
+    {
+        oldCurrentHability?.ToggleBackground(false);
+        currentHability.ToggleBackground(false);
+    }
+
     public int GetCurrentSelectionKey()
     {
         return currentHability.GetAmountSelectionKey();
