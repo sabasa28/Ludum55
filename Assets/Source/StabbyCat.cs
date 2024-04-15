@@ -14,6 +14,12 @@ public class StabbyCat : Cat
         base.Awake();
         AnimController = GetComponent<Animator>();
     }
+
+    public override void Start()
+    {
+        if (TargetPosition.x < transform.position.x) transform.rotation = Quaternion.Euler(0.0f, -180.0f, 0.0f);
+    }
+
     protected override void FinishedSpawning()
     {
         ChangeCurrentState(State.Moving);

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private SelectionKeysHandler selectionKeysHandler = null;
     [SerializeField] private HabilitySelectionHandler habilitySelectionHandler = null;
     [SerializeField] private CatSpawnerHandler catSpawnerHandler = null;
+    [SerializeField] private RatSpawnerManager ratSpawnerManager = null;
 
     [Header("References")]
     [SerializeField] private Player player = null;
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
 
     public void EndGame()
     {
+        ratSpawnerManager.StopSpawningRats();
         UI.DisplayEndgamePanel(ratsKilledAmount, Time.time - TimeAtGameStart);
     }
 

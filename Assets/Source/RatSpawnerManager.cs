@@ -37,6 +37,11 @@ public class RatSpawnerManager : MonoBehaviour
         StartCoroutine(SpawnPortals());
     }
 
+    public void StopSpawningRats()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator SpawnPortals()
     {
         while (true) // >:)
