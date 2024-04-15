@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIMainMenu : MonoBehaviour
 {
-    [SerializeField]
-    GameObject CreditsPanel;
-    [SerializeField]
-    GameObject ControlsPanel;
-    [SerializeField]
-    GameObject LorePanel;
-    [SerializeField]
-    float TimeDisplayingLore;
-
+    [SerializeField] private GameObject CreditsPanel = null;
+    [SerializeField] private GameObject ControlsPanel = null;
+    [SerializeField] GameObject LorePanel;
+    [SerializeField] float TimeDisplayingLore;
+    
     public void GoToGameplayScene()
     {
         StartCoroutine(DisplayLoreScreen());
     }
+
     public void SetCreditsPanelVisibility(bool IsVisible)
     {
         CreditsPanel.SetActive(IsVisible);
     }
+    
     public void SetControlsPanelVisibility(bool IsVisible)
     {
         ControlsPanel.SetActive(IsVisible);
     }
+    
     public void CloseGame()
     {
         Application.Quit();
