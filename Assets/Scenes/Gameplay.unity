@@ -232,6 +232,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
+--- !u!114 &345571275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7492307734499159588, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
+  m_PrefabInstance: {fileID: 345571274}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85aa5e39d7c90244a5e88aca7984399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &357445048 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 208496481899369625, guid: bffef65780e498146948f87555b244b6, type: 3}
@@ -873,6 +884,7 @@ MonoBehaviour:
   selectionKeysHandler: {fileID: 580958574}
   habilitySelectionHandler: {fileID: 2125900170}
   catSpawnerHandler: {fileID: 1873053405}
+  ratSpawnerManager: {fileID: 345571275}
   player: {fileID: 2071863321}
   UI: {fileID: 861010548}
   lifeHandler: {fileID: 465924254}
