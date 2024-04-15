@@ -51,3 +51,8 @@ MonoBehaviour:
   PlayerReference: {fileID: 0}
   MinSpawnDistanceFromPlayer: 5
   MaxSpawnDistanceFromPlayer: 15
+  LeftWall: {fileID: 0}
+  RightWall: {fileID: 0}
+  BottomWall: {fileID: 0}
+  TopWall: {fileID: 0}
+  WallCheckOffset: 5

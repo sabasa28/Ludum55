@@ -9,7 +9,6 @@ public class ChunkyCat : Cat
     {
         ChangeCurrentState(State.Moving);
     }
-
     protected void FinishedMoving()
     {
         ChangeCurrentState(State.Attacking);

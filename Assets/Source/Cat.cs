@@ -15,7 +15,7 @@ public abstract class Cat : MonoBehaviour
     }
     public State CurrentState = State.Spawning;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         SpriteRend = GetComponentInChildren<SpriteRenderer>();
     }

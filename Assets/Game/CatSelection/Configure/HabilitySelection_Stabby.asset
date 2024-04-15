@@ -15,4 +15,4 @@ MonoBehaviour:
   amountOfKeys: 4
   habilityImage: {fileID: 1047472079, guid: 04e0143e8f7334040970dd3317a9ddff, type: 3}
   activationKey: 120
-  catPrefab: {fileID: 3070367371919139068, guid: aec0ec41f21624d4cbeeb3f978630f23, type: 3}
+  catPrefab: {fileID: 7140634692468437625, guid: 2bfd1de7eabcb6a4abcce989aed986b4, type: 3}

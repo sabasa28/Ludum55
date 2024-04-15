@@ -14,6 +14,17 @@ public class ChunkyCatAOE : MonoBehaviour
     public void ActivateDamage()
     {
         TriggerForDamage.enabled = true;
-        SpriteRend.enabled = true;
+        if (SpriteRend)
+        { 
+            SpriteRend.enabled = true;
+        }
+    }
+    public void DeactivateDamage()
+    {
+        TriggerForDamage.enabled = false;
+        if (SpriteRend)
+        {
+            SpriteRend.enabled = false;
+        }
     }
 }
