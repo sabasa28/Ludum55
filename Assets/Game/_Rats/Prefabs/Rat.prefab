@@ -54,7 +54,6 @@ MonoBehaviour:
   CurrentHealth: 0
   animator: {fileID: 271737637899262750}
   TimeToSpawn: 2
-  SolidCollider: {fileID: 9006676535021052049}
   EntityToChase: {fileID: 0}
 --- !u!61 &9006676535021052049
 BoxCollider2D:
@@ -266,7 +265,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1150867144, guid: 373d0a32c3a96ae4493548923c10fddb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
