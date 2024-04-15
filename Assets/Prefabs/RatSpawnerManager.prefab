@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85aa5e39d7c90244a5e88aca7984399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBetweenPortals: 20
+  TimeBetweenPortals: 10
   MultiplierForUpdatingTBP: 0.95
   MinTBP: 3
   PortalPrefab: {fileID: 7053450838467168712, guid: 4583601d9e4061842b7d92aee4db32fb, type: 3}

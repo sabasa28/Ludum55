@@ -9,10 +9,14 @@ public class UIMainMenu : MonoBehaviour
     GameObject CreditsPanel;
     [SerializeField]
     GameObject ControlsPanel;
+    [SerializeField]
+    GameObject LorePanel;
+    [SerializeField]
+    float TimeDisplayingLore;
 
     public void GoToGameplayScene()
     {
-        SceneManager.LoadScene("Gameplay");
+        StartCoroutine(DisplayLoreScreen());
     }
     public void SetCreditsPanelVisibility(bool IsVisible)
     {
@@ -25,5 +29,12 @@ public class UIMainMenu : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator DisplayLoreScreen()
+    {
+        LorePanel.SetActive(LorePanel);
+        yield return new WaitForSeconds(TimeDisplayingLore);
+        SceneManager.LoadScene("Gameplay");
     }
 }
