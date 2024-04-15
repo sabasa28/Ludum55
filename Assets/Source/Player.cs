@@ -12,6 +12,10 @@ public class Player : Entity
     [SerializeField] float invulnerabilityFramesTime = 0.5f;
     [SerializeField] float stunFramesTime = 1f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip punchAudio = null;
+
     private Vector3 desiredPosition;
     private bool bIsMoving;
     private bool bIsVulnerable = true;
@@ -138,7 +142,10 @@ public class Player : Entity
         if (collision.CompareTag("Enemy"))
         {
             if (bIsVulnerable)
-            { 
+            {
+                audioSource.clip = punchAudio;
+                audioSource.Play();
+
                 TakeDamage(1); //tenemos un solo enemigo y siempre mete 1 de da�o, me tomo la libertad de magic numberearlo
                 StartCoroutine(InvulnerabilityFrames());
             }

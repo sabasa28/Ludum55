@@ -190,6 +190,9 @@ MonoBehaviour:
   holderPrefabs: {fileID: 3748744441078736490}
   buttonPrefab: {fileID: 1577173230131835532, guid: d3bd565a940ae3143a3c91ed296334bd, type: 3}
   closePopupTimer: 0.5
+  audioSource: {fileID: 0}
+  wrongAudio: {fileID: 8300000, guid: 28300894ec461544abdb71aa7d3bb890, type: 3}
+  correctAudio: {fileID: 8300000, guid: a670f445174258e40bbb83dc4f588c8f, type: 3}
 --- !u!1 &6968836650005086691
 GameObject:
   m_ObjectHideFlags: 0

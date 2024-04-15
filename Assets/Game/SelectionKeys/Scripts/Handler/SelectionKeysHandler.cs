@@ -15,7 +15,12 @@ public class SelectionKeysHandler : MonoBehaviour
     
     [Header("Popup Data")]
     [SerializeField] private float closePopupTimer = 0.15f;
-    
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip wrongAudio = null;
+    [SerializeField] private AudioClip correctAudio = null;
+
     private List<SelectionButtonView> selectionButtons = null;
 
     private int actualButton = 0;
@@ -103,6 +108,9 @@ public class SelectionKeysHandler : MonoBehaviour
             selectionButtons[actualButton].UpdateState(SelectionButtonView.SelectionState.Correct);
             actualButton++;
 
+            audioSource.clip = correctAudio;
+            audioSource.Play();
+
             WinSelection();
         }
         else
@@ -110,10 +118,14 @@ public class SelectionKeysHandler : MonoBehaviour
             selectionButtons[actualButton].UpdateState(SelectionButtonView.SelectionState.Wrong);
             loseSelection = true;
             actualButton = 0;
+            
+            audioSource.clip = wrongAudio;
+            audioSource.Play();
 
             StartCoroutine(ClosePopUpTimer(
                 () =>
                 {
+
                     playerRef.SetStunState();
                     playerRef.SetAnimationState(Player.TriggersAnimations.WrongCat);
                 }));

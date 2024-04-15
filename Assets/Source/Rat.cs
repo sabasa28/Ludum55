@@ -7,8 +7,13 @@ public class Rat : Entity
     [SerializeField] private Animator animator = null;
     [SerializeField] private float TimeToSpawn = 0f;
     SpriteRenderer SpriteRend;
-
     public Entity EntityToChase;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip deathAudio = null;
+    [SerializeField] private float pitchValue = 0.25f;
+
 
     private enum State
     { 
@@ -25,6 +30,7 @@ public class Rat : Entity
     {
         SpriteRend = GetComponentInChildren<SpriteRenderer>();
     }
+
     protected override void Start()
     {
         base.Start();
@@ -60,6 +66,10 @@ public class Rat : Entity
     {
         if (bIsAlive)
         {
+            audioSource.clip = deathAudio;
+            audioSource.pitch = pitchValue;
+            audioSource.Play();
+
             animator.SetTrigger(deathTrigger);
             BoxCollider2D[] BoxCollider2Ds = GetComponents<BoxCollider2D>();
             foreach (BoxCollider2D Coll in BoxCollider2Ds)
