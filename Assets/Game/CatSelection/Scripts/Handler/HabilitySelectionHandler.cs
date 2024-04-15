@@ -13,6 +13,10 @@ public class HabilitySelectionHandler : MonoBehaviour
     [Header("Configure Data")]
     [SerializeField] private List<HabilitySelectionConfigure> habilitySelectionConfigures = null;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip selectionAudio = null;
+
     private List<HabilityButtonView> habilityButtons = null;
     private HabilityButtonView currentHability = null;
     private HabilityButtonView oldCurrentHability = null;
@@ -39,6 +43,9 @@ public class HabilitySelectionHandler : MonoBehaviour
         {
             if (Input.GetKeyDown(habilityButtons[i].ActivationKey))
             {
+                audioSource.clip = selectionAudio;
+                audioSource.Play();
+
                 oldCurrentHability = currentHability;
 
                 habilityButtons[i].SelectView();
