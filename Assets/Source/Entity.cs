@@ -5,7 +5,9 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected int InitialHealth;
     [SerializeField] protected float MovementSpeed;
     [SerializeField] protected int CurrentHealth;
+
     protected bool bIsAlive = true;
+    
     protected virtual void Start()
     {
         CurrentHealth = InitialHealth;

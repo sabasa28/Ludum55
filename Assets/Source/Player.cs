@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Player : Entity
     [SerializeField] private Animator animator = null;
     [SerializeField] private SpriteRenderer characterSprite = null;
     [Space]
+    [SerializeField] Color invulnerabilityColor = Color.red;
     [SerializeField] float invulnerabilityFramesTime = 0.5f;
     [SerializeField] float stunFramesTime = 1f;
 
@@ -15,7 +17,9 @@ public class Player : Entity
     private bool bIsVulnerable = true;
     private bool isStunned = false;
 
-    Camera CameraToUse;
+    private Camera CameraToUse;
+
+    private Action<int> onUpdateUI = null;
 
     private void Awake()
     {
@@ -34,6 +38,11 @@ public class Player : Entity
         Casting,
         CorrectCat,
         WrongCat
+    }
+
+    public void Configure(Action<int> onUpdateUI)
+    {
+        this.onUpdateUI = onUpdateUI;
     }
 
     public void SetStunState()
@@ -75,6 +84,13 @@ public class Player : Entity
                 animator.SetTrigger(wrongCat);
                 break;
         }
+    }
+
+    protected override void TakeDamage(int DamageAmount)
+    {
+        onUpdateUI.Invoke(DamageAmount);
+
+        base.TakeDamage(DamageAmount);
     }
 
     protected override void Die()
@@ -132,7 +148,27 @@ public class Player : Entity
     private IEnumerator InvulnerabilityFrames()
     {
         bIsVulnerable = false;
-        yield return new WaitForSeconds(invulnerabilityFramesTime);
+
+        Color startColor = characterSprite.color;
+        float elapsedFlashTime = 0;
+        float elapsedFlashPersentage = 0;
+
+        while (elapsedFlashTime < invulnerabilityFramesTime)
+        {
+            elapsedFlashTime += Time.deltaTime;
+            elapsedFlashPersentage = elapsedFlashTime / invulnerabilityFramesTime;
+
+            if(elapsedFlashPersentage > 1)
+            {
+                elapsedFlashPersentage = 1;
+            }
+
+            float pingpongPercentage = Mathf.PingPong(elapsedFlashPersentage * 2 * 5, 1);
+            characterSprite.color = Color.Lerp(startColor, invulnerabilityColor, pingpongPercentage);
+
+            yield return null;
+        }
+        
         bIsVulnerable = true;
     }
 }
