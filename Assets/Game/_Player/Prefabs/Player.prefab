@@ -257,12 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e9176f75044c04bbda820a2570b09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialHealth: 3
+  InitialHealth: 5
   MovementSpeed: 10
-  CurrentHealth: 3
+  CurrentHealth: 5
   animator: {fileID: 4236615752483265377}
   characterSprite: {fileID: 4182468584782447395}
-  invulnerabilityFramesTime: 0.5
+  invulnerabilityFramesTime: 3
   stunFramesTime: 2
 --- !u!61 &1165508767715197896
 BoxCollider2D:

@@ -9,7 +9,7 @@ public class LifeHandler : MonoBehaviour
     {
         int total = 0;
 
-        for (int i = bones.Count - 1; i > 0; i--)
+        for (int i = bones.Count - 1; i >= 0; i--)
         {
             if (bones[i].activeSelf)
             {
