@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StabbyCat : Cat
@@ -27,6 +26,9 @@ public class StabbyCat : Cat
 
     public void FinishedChargingAttack()
     {
+        audioSource.clip = abilityAudio;
+        audioSource.Play();
+
         TriggerForDamage.ActivateDamage();
     }
 

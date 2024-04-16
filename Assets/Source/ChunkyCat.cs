@@ -9,14 +9,17 @@ public class ChunkyCat : Cat
     {
         ChangeCurrentState(State.Moving);
     }
+    
     protected void FinishedMoving()
     {
         ChangeCurrentState(State.Attacking);
     }
+    
     protected void FinishedAttacking()
     {
         ChangeCurrentState(State.Dying);
     }
+
     void ChangeCurrentState(State NewState)
     {
         CurrentState = NewState;
@@ -28,6 +31,9 @@ public class ChunkyCat : Cat
                 StartCoroutine(MoveToTargetCoroutine());
                 break;
             case State.Attacking:
+                audioSource.clip = abilityAudio;
+                audioSource.Play();
+
                 TriggerForDamage.ActivateDamage();
                 break;
             case State.Dying:

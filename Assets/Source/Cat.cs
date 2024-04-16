@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Cat : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] protected AudioSource audioSource = null;
+    [SerializeField] protected AudioClip abilityAudio = null;
+
     public Vector3 TargetPosition;
     SpriteRenderer SpriteRend;
+
     public enum State
     { 
         Spawning,
@@ -13,6 +16,7 @@ public abstract class Cat : MonoBehaviour
         Attacking,
         Dying
     }
+    
     public State CurrentState = State.Spawning;
 
     protected virtual void Awake()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PuckerCat : Cat
@@ -8,8 +6,10 @@ public class PuckerCat : Cat
     PuckerCatProjectile ProjectilePrefab;
     protected override void FinishedSpawning()
     {
-        //este no se mueve asi que no hace nada despues de spawnear
+        audioSource.clip = abilityAudio;
+        audioSource.Play();
     }
+
     public void FinishedChargingAttack()
     {
         Vector3 MoveDirection = (TargetPosition - transform.position).normalized;
