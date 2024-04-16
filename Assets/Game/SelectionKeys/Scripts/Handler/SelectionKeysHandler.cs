@@ -25,10 +25,10 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private int actualButton = 0;
     private int challengeAmount = 0;
-    private bool loseSelection = false;
 
-    private bool isActive = false;
-    
+    private bool isCompleteSelection = false;
+    private bool isActive = false;    
+
     private char[] challengeKeys =
     {
         'W', 'A', 'S', 'D'
@@ -93,7 +93,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     public void UpdateSelection()
     {
-        if (loseSelection || !isActive) 
+        if (isCompleteSelection || !isActive) 
         {
             return;
         }
@@ -116,7 +116,7 @@ public class SelectionKeysHandler : MonoBehaviour
         else
         {
             selectionButtons[actualButton].UpdateState(SelectionButtonView.SelectionState.Wrong);
-            loseSelection = true;
+            isCompleteSelection = true;
             actualButton = 0;
             
             audioSource.clip = wrongAudio;
@@ -155,6 +155,8 @@ public class SelectionKeysHandler : MonoBehaviour
     {
         if (actualButton >= challengeAmount)
         {
+            isCompleteSelection = true;
+
             foreach (var item in selectionButtons)
             {
                 if (item.gameObject.activeSelf)
@@ -174,7 +176,7 @@ public class SelectionKeysHandler : MonoBehaviour
 
     private void RestartButtons()
     {
-        loseSelection = false;
+        isCompleteSelection = false;
         actualButton = 0;
 
         foreach (var item in selectionButtons)

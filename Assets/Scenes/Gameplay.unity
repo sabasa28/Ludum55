@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: PlayerReference
       value: 
       objectReference: {fileID: 2071863321}
+    - target: {fileID: 7492307734499159588, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
+      propertyPath: TimeBetweenPortals
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8717603661469445375, guid: 0e8c43f5358165e48adfad98b9ae5825, type: 3}
       propertyPath: m_Name
       value: RatSpawnerManager
