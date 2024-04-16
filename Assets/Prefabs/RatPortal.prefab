@@ -49,6 +49,9 @@ MonoBehaviour:
   TimeToSpawn: 2
   TimeBetweenRatSpawns: 0.5
   RatPrefabToInstantiate: {fileID: 6102466216070380990, guid: 25e4b4cb38c0bf24380110b95c8cee70, type: 3}
+  RedRatPrefabToInstantiate: {fileID: 6102466216070380990, guid: 21e101d7fbae1c54ea5e12537bb171d8, type: 3}
+  ArmoredRatPrefabToInstantiate: {fileID: 6102466216070380990, guid: bc7762c4235e27c40896a6f7b0320b93, type: 3}
+  RedArmoredRatPrefabToInstantiate: {fileID: 6102466216070380990, guid: 97fc4a9f6fbbef642b62950d8a721f9b, type: 3}
   EntityToTarget: {fileID: 0}
 --- !u!1001 &7839057059514753000
 PrefabInstance:
